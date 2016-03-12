@@ -4,6 +4,8 @@ View layer done right, using ES6 template string.
 
 ## Quick Glance
 
+Preview the example online: https://egoistian.com/evangelion/
+
 ```js
 import eva, {html} from 'evangelion'
 
