@@ -1,4 +1,4 @@
-# evangelion
+# Evangelion
 
 View layer done right, using ES6 template string.
 
