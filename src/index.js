@@ -6,8 +6,7 @@ function extend(vm) {
 		vm.data() :
 		vm.data
 
-
-	// initial reative data
+	// initial reactive data
 	vm.$data = data
 	for (const key in data) {
 		Object.defineProperty(vm, key, {
