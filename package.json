@@ -18,14 +18,18 @@
     "build:umd": "rollup -c",
     "build:cjs": "BUILD_FORMAT=cjs rollup -c",
     "build:umd:minify": "NODE_ENV=production rollup -c",
-    "dev": "devtool test.js -i dev.html -w"
+    "dev": "devtool test.js -i dev.html -w",
+    "build:demo": "tooling build",
+    "dev:demo": "tooling watch",
+    "deploy:demo": "npm run build:demo && gh-pages -d build"
   },
   "files": [
     "index.js",
     "dist"
   ],
   "keywords": [
-    ""
+    "view",
+    "mvvm"
   ],
   "devDependencies": {
     "ava": "^0.10.0",
@@ -46,5 +50,11 @@
   "dependencies": {
     "bel": "^4.0.0",
     "morphdom": "^1.1.2"
+  },
+  "tooling": {
+    "entry": "example.js",
+    "index": {
+      "title": "Evangelion counter example"
+    }
   }
 }
