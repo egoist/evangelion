@@ -1,4 +1,4 @@
-import eva, {html} from './'
+import eva, {html} from './src'
 
 const app = eva({
 	data: {count: 0},

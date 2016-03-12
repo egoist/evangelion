@@ -6,44 +6,48 @@ function extend(vm) {
 		vm.data() :
 		vm.data
 
-	const newVm = vm
 
 	// initial reative data
-	newVm.$data = data
+	vm.$data = data
 	for (const key in data) {
-		Object.defineProperty(newVm, key, {
+		Object.defineProperty(vm, key, {
 			get() {
-				return newVm.$data[key]
+				return vm.$data[key]
 			},
 			set(val) {
-				newVm.$data[key] = val
-				newVm.$update()
+				vm.$data[key] = val
+				vm.$update()
 			}
 		})
 	}
 
 	// bind methods
-	for (const key in newVm.methods) {
-		newVm[key] = newVm.methods[key].bind(newVm)
+	for (const key in vm.methods) {
+		vm[key] = vm.methods[key].bind(vm)
 	}
 
-	newVm.render = newVm.render.bind(newVm)
+	vm.render = vm.render.bind(vm)
 
-	newVm.$id = ramdomId()
-	const html = newVm.render()
-	html.setAttribute('data-eva-id', newVm.$id)
-	newVm.$html = html
+	vm.$id = ramdomId()
+	const html = vm.render()
+	html.setAttribute('data-eva-id', vm.$id)
+	vm.$html = html
 
 	// update when change data
-	newVm.$update = () => {
-		const html = newVm.render()
-		html.setAttribute('data-eva-id', newVm.$id)
-		newVm.$html = html
-		const oldHtml = document.querySelector(`[data-eva-id="${newVm.$id}"]`)
-		morphdom(oldHtml, newVm.$html)
+	vm.$update = () => {
+		const html = vm.render()
+		html.setAttribute('data-eva-id', vm.$id)
+		vm.$html = html
+		const oldHtml = document.querySelector(`[data-eva-id="${vm.$id}"]`)
+		morphdom(oldHtml, vm.$html)
 	}
 
-	return newVm
+	// add $mount
+	vm.$mount = toNode => {
+		toNode.appendChild(vm.$html)
+	}
+
+	return vm
 }
 
 function ramdomId() {

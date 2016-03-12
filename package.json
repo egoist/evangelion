@@ -1,6 +1,6 @@
 {
   "name": "evangelion",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha",
   "description": "JavaScript Testing utilities for Vue.",
   "license": "MIT",
   "repository": "EGOIST/evangelion",
@@ -17,7 +17,8 @@
     "build": "concurrently \"npm run build:umd\" \"npm run build:umd:minify\" \"npm run build:cjs\"",
     "build:umd": "rollup -c",
     "build:cjs": "BUILD_FORMAT=cjs rollup -c",
-    "build:umd:minify": "NODE_ENV=production rollup -c"
+    "build:umd:minify": "NODE_ENV=production rollup -c",
+    "dev": "devtool test.js -i dev.html -w"
   },
   "files": [
     "index.js",
