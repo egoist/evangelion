@@ -31,6 +31,7 @@ app.$mount(document.body)
 ## Roadmap
 
 - [x] Rerender view after update state
+- [ ] Recursive getter/setter, like `this.foo.count++`
 - [ ] Component system
 
 ## Development

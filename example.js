@@ -12,9 +12,12 @@ const app = eva({
     },
     render() {
         return html`
-            <div class="count" onclick=${this.increment}>${this.count}</div>
+			<div>
+				<logo></logo>
+            	<div class="count" onclick=${this.increment}>${this.count}</div>
+			</div>
         `
     }
 })
-
+window.app = app
 app.$mount(document.body)
