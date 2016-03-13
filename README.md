@@ -7,7 +7,7 @@ View layer done right, using ES6 template string.
 Preview the example online: https://egoistian.com/evangelion/
 
 ```js
-import eva, {html} from 'evangelion'
+import eva, {html, mount} from 'evangelion'
 
 const app = eva({
 	data() {
@@ -25,7 +25,7 @@ const app = eva({
 	}
 })
 
-app.$mount(document.body)
+mount(app, document.body)
 ```
 
 ## Roadmap
