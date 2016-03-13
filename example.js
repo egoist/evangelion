@@ -1,4 +1,4 @@
-import eva, {html} from './src'
+import eva, {html, mount} from './src'
 import './example/style.css'
 
 const app = eva({
@@ -20,4 +20,4 @@ const app = eva({
     }
 })
 window.app = app
-app.$mount(document.body)
+mount(app, document.body)

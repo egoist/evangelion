@@ -1,7 +1,7 @@
 import morphdom from 'morphdom'
 import html from 'bel'
 
-function extend(vm) {
+function eva(vm) {
 	const data = typeof vm.data === 'function' ?
 		vm.data() :
 		vm.data
@@ -53,5 +53,9 @@ function ramdomId() {
 	return Math.random()
 }
 
-export default extend
-export {html}
+function mount(vm, toNode) {
+	toNode.appendChild(vm.$html)
+}
+
+export default eva
+export {html, mount}
